@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S. Ajithkumar - UI/UX Designer Portfolio</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #0b1220;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+section {
+  padding: 60px 8%;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+
+.section-title span {
+  color: #38bdf8;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 8%;
+  background-color: #0d1626;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  color: #38bdf8;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: #ffffff;
+  font-size: 15px;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #38bdf8;
+  transition: width 0.3s;
+}
+
+.nav-links a:hover {
+  color: #38bdf8;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.menu-btn {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: #ffffff;
+}
+
+.ak {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 80px 8%;
+  gap: 40px;
+}
+
+.ak-text {
+  max-width: 500px;
+  animation: fadeUp 0.8s ease;
+}
+
+.small-title {
+  color: #38bdf8;
+  margin-bottom: 5px;
+}
+
+.ak-text h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.ak-text h3 {
+  color: #38bdf8;
+  margin-bottom: 15px;
+}
+
+.ak-desc {
+  color: #cbd5e1;
+  margin-bottom: 25px;
+}
+
+.ak-buttons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.socials {
+  display: flex;
+  gap: 15px;
+}
+
+.socials a {
+  border: 1px solid #38bdf8;
+  padding: 6px 14px;
+  border-radius: 5px;
+  font-size: 14px;
+  display: inline-block;
+  transition: transform 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.socials a:hover {
+  background-color: #38bdf8;
+  color: #0b1220;
+  transform: translateY(-3px);
+}
+
+.ak-image {
+  animation: fadeUp 0.8s ease 0.2s backwards;
+}
+
+.ak-image img {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #38bdf8;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.ak-image img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.5);
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 1px solid #38bdf8;
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(56, 189, 248, 0.35);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-filled {
+  background-color: #38bdf8;
+  color: #0b1220;
+}
+
+.btn-filled:hover {
+  background-color: #0ea5c8;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #ffffff;
+}
+
+.btn-outline:hover {
+  background-color: #38bdf8;
+  color: #0b1220;
+}
+
+.about {
+  background-color: #0d1626;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.about-img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #38bdf8;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.about-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.5);
+}
+
+.about-text {
+  max-width: 550px;
+}
+
+.about-text h3 {
+  color: #38bdf8;
+  margin-bottom: 10px;
+}
+
+.about-text p {
+  color: #cbd5e1;
+  margin-bottom: 15px;
+}
+
+.more-text {
+  display: none;
+}
+
+.more-text.show {
+  display: block;
+}
+
+.about-list {
+  margin-top: 20px;
+}
+
+.about-list li {
+  margin-bottom: 8px;
+  color: #cbd5e1;
+}
+
+.edu-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+.card {
+  background-color: #0d1626;
+  border: 1px solid #1e3a52;
+  border-radius: 8px;
+  padding: 25px;
+  width: 300px;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+.card:hover {
+  border-color: #38bdf8;
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.25);
+}
+
+.card-date {
+  color: #38bdf8;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.card h3 {
+  margin-bottom: 8px;
+}
+.skills {
+  background-color: #0d1626;
+}
+
+.skills-columns {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.skill-box {
+  background-color: #0b1220;
+  border: 1px solid #1e3a52;
+  border-radius: 8px;
+  padding: 25px;
+  min-width: 220px;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.skill-box:hover {
+  transform: translateY(-6px);
+  border-color: #38bdf8;
+}
+
+.skill-box h3 {
+  color: #38bdf8;
+  margin-bottom: 15px;
+}
+
+.skill-box li {
+  padding: 8px 0;
+  border-bottom: 1px solid #1e3a52;
+  color: #cbd5e1;
+  transition: color 0.3s, padding-left 0.3s;
+}
+
+.skill-box li:hover {
+  color: #38bdf8;
+  padding-left: 6px;
+}
+
+.skill-box li:last-child {
+  border-bottom: none;
+}
+
+.sub-title {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #38bdf8;
+}
+
+.project-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+.project-cards .card p {
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.form-row input {
+  flex: 1;
+  min-width: 220px;
+}
+
+input,
+textarea {
+  background-color: #0d1626;
+  border: 1px solid #1e3a52;
+  border-radius: 5px;
+  padding: 12px;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 14px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:hover,
+textarea:hover {
+  border-color: #2c5b7a;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #38bdf8;
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
+}
+
+.form-msg {
+  font-size: 14px;
+  color: #38bdf8;
+  min-height: 18px;
+}
+
+.footer {
+  text-align: center;
+  padding: 25px 8%;
+  background-color: #0d1626;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer p {
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+.top-btn {
+  background-color: transparent;
+  border: 1px solid #38bdf8;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.top-btn:hover {
+  background-color: #38bdf8;
+  color: #0b1220;
+  transform: translateY(-3px);
+}
+</style>
+
+</head>
+<body>
+
+  <header class="navbar">
+    <h2 class="logo">Ajithkumar.S</h2>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="menu-btn" id="menuBtn" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <section class="ak" id="home">
+    <div class="ak-text">
+      <p class="small-title">Hi, I'm</p>
+      <h1>S. Ajithkumar</h1>
+      <h3>UI/UX Designer</h3>
+      <p class="ak-desc">
+        A B.Sc Computer Science graduate who loves UI/UX design.
+        I enjoy wireframing, prototyping and creating simple,
+        user-friendly designs using Figma.
+      </p>
+
+      <div class="ak-buttons">
+        <a href="mailto:ajithkumarak7417@gmail.com" class="btn btn-filled">Hire Me</a>
+        <a href="#contact" class="btn btn-outline">Let's Talk</a>
+      </div>
+
+      <div class="socials">
+        <a href="mailto:ajithkumarak7417@gmail.com" target="_blank">Email</a>
+        <a href="tel:+918925696613" target="_blank">Call</a>
+      </div>
+    </div>
+
+    <div class="ak-image">
+      <img src="AK.jpeg" alt="">
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <h2 class="section-title reveal">About <span>Me</span></h2>
+
+    <div class="about-content reveal">
+      <img src="AK.jpeg" alt="Ajithkumar" class="about-img">
+
+      <div class="about-text">
+        <h3>UI/UX Designer</h3>
+        <p>
+          I am a motivated B.Sc Computer Science graduate with a passion
+          for UI/UX design and user-centered problem-solving. My education
+          has given me foundational skills in wireframing, prototyping and
+          design tools such as Figma.
+        </p>
+        <p id="moreText" class="more-text">
+          I thrive in collaborative environments and have good communication
+          skills. I am currently looking for an entry-level UI/UX design
+          position where I can learn and grow.
+        </p>
+        <button class="btn btn-outline" id="readMoreBtn" onclick="toggleReadMore()">Read More</button>
+
+        <ul class="about-list">
+          <li><strong>Location:</strong> Madurai, India</li>
+          <li><strong>Languages:</strong> Tamil (Native), English (Proficient)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="education" id="education">
+    <h2 class="section-title reveal">My <span>Education</span></h2>
+
+    <div class="edu-cards reveal">
+      <div class="card">
+        <p class="card-date">2020 - 2023</p>
+        <h3>B.Sc Computer Science</h3>
+        <p>NMSSVN College, Madurai</p>
+      </div>
+
+      <div class="card">
+        <p class="card-date">2018 - 2020</p>
+        <h3>HSC</h3>
+        <p>A. Rathinasamy Nadar Memorial Hr Sec School, Madurai</p>
+      </div>
+
+      <div class="card">
+        <p class="card-date">2016 - 2018</p>
+        <h3>SSLC</h3>
+        <p>A. Rathinasamy Nadar Memorial Hr Sec School, Madurai</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills" id="skills">
+    <h2 class="section-title reveal">My <span>Skills</span></h2>
+
+    <div class="skills-columns reveal">
+      <div class="skill-box">
+        <h3>Design Skills</h3>
+        <ul>
+          <li>Figma</li>
+          <li>Wireframing</li>
+          <li>Prototyping</li>
+          <li>User Research</li>
+        </ul>
+      </div>
+
+      <div class="skill-box">
+        <h3>Development Skills</h3>
+        <ul>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="projects">
+      <h3 class="sub-title">Projects</h3>
+
+      <div class="project-cards reveal">
+        <div class="card">
+          <h4>Student Management System</h4>
+          <p>UI/UX redesign of a student management dashboard to improve
+            navigation and visual design.</p>
+        </div>
+
+        <div class="card">
+          <h4>Car Rental App</h4>
+          <p>Mobile UI/UX design for a car booking app with a simple and
+            easy booking flow.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2 class="section-title reveal">Contact <span>Me!</span></h2>
+
+    <form class="contact-form reveal" id="contactForm" onsubmit="return validateForm()">
+      <div class="form-row">
+        <input type="text" id="fullName" placeholder="Full Name">
+        <input type="email" id="email" placeholder="Email Address">
+      </div>
+      <div class="form-row">
+        <input type="text" id="mobile" placeholder="Mobile Number">
+        <input type="text" id="subject" placeholder="Email Subject">
+      </div>
+      <textarea id="message" rows="5" placeholder="Your Message"></textarea>
+
+      <p id="formMsg" class="form-msg"></p>
+
+      <button type="submit" class="btn btn-filled">Submit</button>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2026 S. Ajithkumar. All rights reserved.</p>
+    <button id="topBtn" class="top-btn" onclick="scrollToTop()">Top ↑</button>
+  </footer>
+
+  <script>
+function toggleMenu() {
+  var navLinks = document.getElementById("navLinks");
+  navLinks.classList.toggle("show");
+}
+
+function toggleReadMore() {
+  var moreText = document.getElementById("moreText");
+  var btn = document.getElementById("readMoreBtn");
+
+  moreText.classList.toggle("show");
+
+  if (moreText.classList.contains("show")) {
+    btn.textContent = "Read Less";
+  } else {
+    btn.textContent = "Read More";
+  }
+}
+
+function validateForm() {
+  var name = document.getElementById("fullName").value;
+  var email = document.getElementById("email").value;
+  var mobile = document.getElementById("mobile").value;
+  var subject = document.getElementById("subject").value;
+  var message = document.getElementById("message").value;
+  var formMsg = document.getElementById("formMsg");
+
+  if (name === "" || email === "" || mobile === "" || subject === "" || message === "") {
+    formMsg.textContent = "Please fill in all fields.";
+    formMsg.style.color = "red";
+    return false;
+  }
+
+  formMsg.textContent = "Thank you! Your message has been sent.";
+  formMsg.style.color = "#38bdf8";
+  document.getElementById("contactForm").reset();
+  return false;
+}
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function revealOnScroll() {
+  var items = document.querySelectorAll(".reveal");
+
+  for (var i = 0; i < items.length; i++) {
+    var itemTop = items[i].getBoundingClientRect().top;
+    var windowHeight = window.innerHeight;
+
+    if (itemTop < windowHeight - 80) {
+      items[i].classList.add("show");
+    }
+  }
+}
+window.addEventListener("load", revealOnScroll);
+window.addEventListener("scroll", revealOnScroll);
+
+</script>
+</body>
+</html>
